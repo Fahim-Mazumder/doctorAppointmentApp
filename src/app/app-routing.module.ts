@@ -1,6 +1,6 @@
-import { DoctorScheduleCalendarComponent } from './doctor-schedule-calendar/doctor-schedule-calendar.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DoctorScheduleCalendarComponent } from './components/doctor-schedule-calendar/doctor-schedule-calendar.component';
 
 const routes: Routes = [
   { path: 'month/:monthNo', component: DoctorScheduleCalendarComponent },

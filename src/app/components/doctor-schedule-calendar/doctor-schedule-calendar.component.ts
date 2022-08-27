@@ -1,12 +1,12 @@
-import { AppointmentStorageService } from './../service/appointment-storage.service';
 import { CreateDoctorAppointmentComponent } from './../create-doctor-appointment/create-doctor-appointment.component';
 import { ViewDoctorAppointmentComponent } from './../view-doctor-appointment/view-doctor-appointment.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Appointment } from '../model/Appointment';
-import { Day } from '../model/Day';
-import { Month } from '../model/Month';
 import { MatDialog } from '@angular/material/dialog';
+import { Appointment } from 'src/app/model/Appointment';
+import { Day } from 'src/app/model/Day';
+import { Month } from 'src/app/model/Month';
+import { AppointmentStorageService } from 'src/app/service/appointment-storage.service';
 
 @Component({
   selector: 'app-doctor-schedule-calendar',
@@ -129,7 +129,6 @@ export class DoctorScheduleCalendarComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('result : ', result);
       if (!result) {
         return;
       }
