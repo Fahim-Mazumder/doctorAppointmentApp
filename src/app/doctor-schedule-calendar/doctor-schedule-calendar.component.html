@@ -1,0 +1,23 @@
+<div>
+  <!-- month field -->
+  <mat-form-field>
+    <mat-label>Month</mat-label>
+      <mat-select [(value)]="currentMonth" (selectionChange)="monthChanged($event)">
+        <mat-option *ngFor="let month of months" [value]="month.serial">
+          {{month.name}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <button style="float: right;" mat-raised-button color="warn" (click)="appointmentDialog()">Create Appointment</button>
+</div>
+
+<div>
+  <mat-grid-list cols="7" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let day of days">
+      <div class="dayno">{{day.dayNo}}</div>
+      <div class="appointmentblog">
+          <button class="appointmentbtn" (click)="gotoDetail(apmnt)" *ngFor="let apmnt of day.appointments">Appointment: {{apmnt?.firstName?.toString() +" "+ apmnt?.lastName?.toString()}}</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

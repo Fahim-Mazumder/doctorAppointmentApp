@@ -1,0 +1,49 @@
+<div fxLayoutAlign="center center" fxFlexFill fxFlex="100">
+  <form [formGroup]="this.apmntForm" fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstName" required>
+        <mat-error *ngIf="firstName?.invalid && firstName?.touched">
+          Your first name doesn't look right
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName" required>
+        <mat-error *ngIf="lastName?.invalid && lastName?.touched">
+          Your last name doesn't look right
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error *ngIf="email?.invalid && email?.touched">
+          Your email doesn't look right
+        </mat-error>
+      </mat-form-field>
+      <div class="genderblock">
+        <mat-label>Gender:</mat-label>
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+          <mat-radio-button value="MALE">Male</mat-radio-button>
+          <mat-radio-button value="FEMALE">Female</mat-radio-button>
+          <mat-radio-button value="OTHERS">Others</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Age" formControlName="age" (keypress)="keyPressNumbers($event)">
+        <mat-error *ngIf="age?.invalid && age?.touched">
+          Your age doesn't look right
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Appointment Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Appointment Time</mat-label>
+        <input matInput type="time" formControlName="time" required>
+      </mat-form-field>
+
+      <button mat-raised-button [disabled]="this.apmntForm.invalid" color="primary" type="submit" (click)="save()">Save Appointment</button>
+      <button mat-raised-button color="warn" type="submit" (click)="onClose()">Close</button>
+  </form>
+</div>

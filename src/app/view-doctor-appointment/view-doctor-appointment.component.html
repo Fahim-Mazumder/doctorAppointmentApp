@@ -1,0 +1,12 @@
+<div fxLayoutAlign="center center" fxFlexFill fxFlex="100" style="height: 300px; font-size: 16px">
+  <mat-label><b>First Name :</b> {{this.currentAppointment.firstName}}</mat-label><br><br>
+  <mat-label><b>Last Name :</b> {{this.currentAppointment.lastName}}</mat-label><br><br>
+  <mat-label><b>Email :</b> {{this.currentAppointment.email}}</mat-label><br><br>
+  <mat-label><b>Gender :</b> {{this.currentAppointment.gender}}</mat-label><br><br>
+  <mat-label><b>Age :</b> {{this.currentAppointment.age}}</mat-label><br><br>
+  <mat-label><b>Date :</b> {{this.currentAppointment.date.toString() | date:'MMM d, y'}}</mat-label><br><br>
+  <mat-label><b>Time :</b> {{this.currentAppointment.time.toString() | time24to12Transform}}</mat-label><br><br>
+</div>
+<div style="height: 50px; font-size: 16px; text-align: center;">
+  <button mat-raised-button color="warn" (click)="onClose()">Close</button>
+</div>
